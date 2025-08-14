@@ -1,30 +1,35 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Users, BookOpen, Award, Calendar, MapPin, Phone, Mail, Star, Sparkles, Target, Heart, MessageCircle } from 'lucide-react'
+import { Users, BookOpen, Award, Calendar, MapPin, Star, Sparkles, Target, Heart, MessageCircle } from "lucide-react"
 
 export default function HomePage() {
   const whatsappNumber = "919455862486"
-  
+
   const openWhatsApp = (type: string) => {
     let message = ""
-    switch(type) {
-      case 'admission':
-        message = "Hello! I'm interested in admission to B R D Public School. Please provide me with detailed information about the admission process, fees, and available seats for the 2025-26 academic year."
+    switch (type) {
+      case "admission":
+        message =
+          "Hello! I'm interested in admission to B R D Public School. Please provide me with detailed information about the admission process, fees, and available seats for the 2025-26 academic year."
         break
-      case 'visit':
-        message = "Hello! I would like to schedule a campus visit to B R D Public School. Please let me know the available dates and times for a guided tour of your facilities."
+      case "visit":
+        message =
+          "Hello! I would like to schedule a campus visit to B R D Public School. Please let me know the available dates and times for a guided tour of your facilities."
         break
-      case 'prospectus':
-        message = "Hello! I would like to download the B R D Public School prospectus. Please share the detailed brochure with admission information, fee structure, and curriculum details."
+      case "prospectus":
+        message =
+          "Hello! I would like to download the B R D Public School prospectus. Please share the detailed brochure with admission information, fee structure, and curriculum details."
         break
     }
-    
+
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
-    window.open(whatsappUrl, '_blank')
+    window.open(whatsappUrl, "_blank")
   }
 
   return (
@@ -32,7 +37,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative h-screen bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
-        
+
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
@@ -47,7 +52,7 @@ export default function HomePage() {
           fill
           className="object-cover mix-blend-overlay opacity-30"
         />
-        
+
         <div className="relative container mx-auto px-4 h-full flex items-center">
           <div className="max-w-4xl text-white">
             <div className="flex items-center space-x-2 mb-6">
@@ -56,7 +61,7 @@ export default function HomePage() {
                 Newly Established 2025
               </Badge>
             </div>
-            
+
             <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
               Welcome to
               <span className="block bg-gradient-to-r from-green-400 to-green-400 bg-clip-text text-transparent">
@@ -64,26 +69,26 @@ export default function HomePage() {
               </span>
               <span className="block text-4xl md:text-5xl text-white/90">Kandawa</span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl mb-8 leading-relaxed max-w-3xl">
-              Where innovation meets tradition. Join India's newest premier educational institution, 
-              designed for the leaders of tomorrow with world-class facilities and passionate educators.
+              Where innovation meets tradition. Join India's newest premier educational institution, designed for the
+              leaders of tomorrow with world-class facilities and passionate educators.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-green-600 hover:bg-green-700 text-lg px-8 py-4 shadow-xl"
-                onClick={() => openWhatsApp('admission')}
+                onClick={() => openWhatsApp("admission")}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Start Your Journey
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-black hover:bg-green hover:text-blue-600 text-lg px-8 py-4"
-                onClick={() => openWhatsApp('visit')}
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-black hover:bg-green hover:text-blue-600 text-lg px-8 py-4 bg-transparent"
+                onClick={() => openWhatsApp("visit")}
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 Schedule a Visit
@@ -116,15 +121,13 @@ export default function HomePage() {
               <Star className="w-5 h-5" />
               <span className="font-semibold">Grand Opening - Academic Year 2025-26</span>
             </div>
-            
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-              A Fresh Start to Excellence
-            </h2>
-            
+
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">A Fresh Start to Excellence</h2>
+
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              We're thrilled to announce the opening of B R D Public School - a state-of-the-art educational institution 
-              built from the ground up with the latest in educational technology, innovative teaching methodologies, 
-              and a commitment to nurturing every child's potential.
+              We're thrilled to announce the opening of B R D Public School - a state-of-the-art educational institution
+              built from the ground up with the latest in educational technology, innovative teaching methodologies, and
+              a commitment to nurturing every child's potential.
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mt-12">
@@ -180,7 +183,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Why Start Your Journey With Us?</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Being a new school gives us the unique advantage of implementing the latest in educational innovation 
+              Being a new school gives us the unique advantage of implementing the latest in educational innovation
               without the constraints of outdated systems.
             </p>
           </div>
@@ -191,23 +194,23 @@ export default function HomePage() {
                 {
                   icon: <Target className="w-6 h-6 text-blue-600" />,
                   title: "Personalized Attention",
-                  description: "Small class sizes ensure every student receives individual attention and support."
+                  description: "Small class sizes ensure every student receives individual attention and support.",
                 },
                 {
                   icon: <Sparkles className="w-6 h-6 text-green-600" />,
                   title: "Latest Technology Integration",
-                  description: "AI-powered learning tools, smart boards, and digital resources in every classroom."
+                  description: "AI-powered learning tools, smart boards, and digital resources in every classroom.",
                 },
                 {
                   icon: <Heart className="w-6 h-6 text-red-600" />,
                   title: "Holistic Development",
-                  description: "Focus on academics, sports, arts, and character building for well-rounded growth."
+                  description: "Focus on academics, sports, arts, and character building for well-rounded growth.",
                 },
                 {
                   icon: <Award className="w-6 h-6 text-purple-600" />,
                   title: "Global Standards",
-                  description: "International curriculum standards adapted for Indian educational requirements."
-                }
+                  description: "International curriculum standards adapted for Indian educational requirements.",
+                },
               ].map((feature, index) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -242,28 +245,26 @@ export default function HomePage() {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              🎉 Admissions Now Open for 2025-26!
-            </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">🎉 Admissions Now Open for 2025-26!</h2>
             <p className="text-xl mb-8">
-              Be among the first students to experience our revolutionary approach to education. 
-              Limited seats available for our inaugural batch.
+              Be among the first students to experience our revolutionary approach to education. Limited seats available
+              for our inaugural batch.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-green-600 hover:bg-green-700 text-lg px-8 py-4"
-                onClick={() => openWhatsApp('admission')}
+                onClick={() => openWhatsApp("admission")}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Apply Now - Early Bird Discount
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-black hover:bg-green hover:text-blue-600 text-lg px-8 py-4"
-                onClick={() => openWhatsApp('prospectus')}
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-black hover:bg-green hover:text-blue-600 text-lg px-8 py-4 bg-transparent"
+                onClick={() => openWhatsApp("prospectus")}
               >
                 <BookOpen className="w-5 h-5 mr-2" />
                 Download Prospectus
@@ -303,37 +304,37 @@ export default function HomePage() {
                 description: "Meet our passionate educators",
                 link: "/teachers",
                 icon: <Users className="w-8 h-8" />,
-                color: "blue"
+                color: "blue",
               },
               {
                 title: "Campus Tour",
                 description: "Explore our modern facilities",
                 link: "/campus",
                 icon: <MapPin className="w-8 h-8" />,
-                color: "green"
+                color: "green",
               },
               {
                 title: "Admission Process",
                 description: "Join our school community",
                 link: "/admissions",
                 icon: <BookOpen className="w-8 h-8" />,
-                color: "purple"
+                color: "purple",
               },
               {
                 title: "School Events",
                 description: "Upcoming activities & programs",
                 link: "/events",
                 icon: <Calendar className="w-8 h-8" />,
-                color: "orange"
-              }
+                color: "orange",
+              },
             ].map((item, index) => (
               <Link key={index} href={item.link}>
                 <Card className="h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
                   <CardHeader className="text-center">
-                    <div className={`w-16 h-16 bg-${item.color}-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-${item.color}-200 transition-colors`}>
-                      <div className={`text-${item.color}-600`}>
-                        {item.icon}
-                      </div>
+                    <div
+                      className={`w-16 h-16 bg-${item.color}-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-${item.color}-200 transition-colors`}
+                    >
+                      <div className={`text-${item.color}-600`}>{item.icon}</div>
                     </div>
                     <CardTitle className="text-xl group-hover:text-blue-600 transition-colors">{item.title}</CardTitle>
                   </CardHeader>
