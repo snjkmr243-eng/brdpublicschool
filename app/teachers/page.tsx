@@ -40,7 +40,7 @@ export default function TeachersPage() {
       specialization: "Hindi",
       achievements: [""],
       email: "poojakumari@brdschool.com",
-      photo: "/teacher-photos/teacher-1.jpeg",
+      photo: "/teacher-photos/teacher-1.jpg",
     },
     {
       name: "MONIKA DAS",
@@ -100,7 +100,7 @@ export default function TeachersPage() {
       specialization: "BIOLOGY",
       achievements: [""],
       email: "nikita.sinha@brdschool.com",
-      photo: "/teacher-photos/teacher-7.jpeg",
+      photo: "/teacher-photos/teacher-7.jpg",
     },
     {
       name: "SHREYA KUMARI SHARMA",
