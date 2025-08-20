@@ -202,7 +202,7 @@ export default function CampusPage() {
                         <td className="border border-gray-300 px-4 py-3">
                           <div className="space-y-1">
                             <div>
-                              <strong>PGT:</strong> 13
+                              <strong>PGT:</strong> 
                             </div>
                             <div>
                               <strong>TGT:</strong> 8
