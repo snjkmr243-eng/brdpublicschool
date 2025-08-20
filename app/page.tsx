@@ -25,11 +25,15 @@ export default function HomePage() {
         message =
           "Hello! I would like to download the B R D Public School prospectus. Please share the detailed brochure with admission information, fee structure, and curriculum details."
         break
+      default:
+        message = "Hello! I'm interested in learning more about B R D Public School."
     }
 
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
-    window.open(whatsappUrl, "_blank")
+    if (typeof window !== "undefined") {
+      window.open(whatsappUrl, "_blank")
+    }
   }
 
   return (
@@ -87,7 +91,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-black hover:bg-green hover:text-blue-600 text-lg px-8 py-4 bg-transparent"
+                className="border-white text-black hover:bg-white hover:text-blue-600 text-lg px-8 py-4 bg-transparent"
                 onClick={() => openWhatsApp("visit")}
               >
                 <Calendar className="w-5 h-5 mr-2" />
@@ -263,7 +267,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-black hover:bg-green hover:text-blue-600 text-lg px-8 py-4 bg-transparent"
+                className="border-white text-black hover:bg-white hover:text-blue-600 text-lg px-8 py-4 bg-transparent"
                 onClick={() => openWhatsApp("prospectus")}
               >
                 <BookOpen className="w-5 h-5 mr-2" />

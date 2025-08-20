@@ -1,28 +1,36 @@
+"use client"
+
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Target, Heart, Star, Users, BookOpen, Award, Lightbulb, Globe, MessageCircle } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-
-const whatsappNumber = "919455862486"
-
-const openWhatsApp = (type: string) => {
-  let message = ""
-  switch(type) {
-    case 'visit':
-      message = "Hello! I would like to schedule a campus visit to BRD Public School. Please let me know the available dates and times for a guided tour of your facilities."
-      break
-    case 'brochure':
-      message = "Hello! I would like to download the BRD Public School brochure with detailed information about your programs, facilities, and admission process."
-      break
-  }
-  
-  const encodedMessage = encodeURIComponent(message)
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
-  window.open(whatsappUrl, '_blank')
-}
+import { Target, Heart, Star, Users, BookOpen, Award, Lightbulb, Globe, MessageCircle } from "lucide-react"
 
 export default function AboutPage() {
+  const whatsappNumber = "919455862486"
+
+  const openWhatsApp = (type: string) => {
+    let message = ""
+    switch (type) {
+      case "visit":
+        message =
+          "Hello! I would like to schedule a campus visit to BRD Public School. Please let me know the available dates and times for a guided tour of your facilities."
+        break
+      case "brochure":
+        message =
+          "Hello! I would like to download the BRD Public School brochure with detailed information about your programs, facilities, and admission process."
+        break
+      default:
+        message = "Hello! I'm interested in learning more about BRD Public School."
+    }
+
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
+    if (typeof window !== "undefined") {
+      window.open(whatsappUrl, "_blank")
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -33,12 +41,10 @@ export default function AboutPage() {
               <Star className="w-4 h-4 mr-2" />
               Established 2025
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-              About BRD Public School
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">About BRD Public School</h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              A visionary educational institution born in 2025, designed to redefine learning 
-              for the digital age while preserving timeless values of character and excellence.
+              A visionary educational institution born in 2025, designed to redefine learning for the digital age while
+              preserving timeless values of character and excellence.
             </p>
           </div>
         </div>
@@ -52,20 +58,21 @@ export default function AboutPage() {
               <h2 className="text-4xl font-bold text-gray-800 mb-6">Our Story</h2>
               <div className="space-y-6 text-gray-600 leading-relaxed">
                 <p>
-                  BRD Public School was founded in 2025 in Kandawa with a revolutionary vision: to create an educational 
-                  environment that seamlessly blends cutting-edge technology with time-tested pedagogical principles. 
-                  Our founders, a team of experienced educators and visionaries, recognized the need for a school 
-                  that could prepare students for the challenges of tomorrow while nurturing their individual talents today.
+                  BRD Public School was founded in 2025 in Kandawa with a revolutionary vision: to create an educational
+                  environment that seamlessly blends cutting-edge technology with time-tested pedagogical principles.
+                  Our founders, a team of experienced educators and visionaries, recognized the need for a school that
+                  could prepare students for the challenges of tomorrow while nurturing their individual talents today.
                 </p>
                 <p>
-                  Starting fresh in 2025 has given us the unique opportunity to build our institution from the ground up, 
-                  incorporating the latest research in education, child psychology, and learning sciences. Every aspect 
-                  of our school - from our curriculum design to our physical infrastructure - has been carefully planned 
-                  to create an optimal learning environment.
+                  Starting fresh in 2025 has given us the unique opportunity to build our institution from the ground
+                  up, incorporating the latest research in education, child psychology, and learning sciences. Every
+                  aspect of our school - from our curriculum design to our physical infrastructure - has been carefully
+                  planned to create an optimal learning environment.
                 </p>
                 <p>
-                  We believe that being a new school is our greatest strength. It allows us to be agile, innovative, 
-                  and responsive to the evolving needs of modern education without being constrained by outdated systems or practices.
+                  We believe that being a new school is our greatest strength. It allows us to be agile, innovative, and
+                  responsive to the evolving needs of modern education without being constrained by outdated systems or
+                  practices.
                 </p>
               </div>
             </div>
@@ -104,8 +111,8 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed">
-                  To provide world-class education that empowers students to become critical thinkers, 
-                  compassionate leaders, and global citizens who can thrive in an ever-changing world.
+                  To provide world-class education that empowers students to become critical thinkers, compassionate
+                  leaders, and global citizens who can thrive in an ever-changing world.
                 </p>
               </CardContent>
             </Card>
@@ -119,8 +126,8 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 leading-relaxed">
-                  To be recognized as a pioneering educational institution that sets new standards for 
-                  innovative teaching, holistic development, and student success in the 21st century.
+                  To be recognized as a pioneering educational institution that sets new standards for innovative
+                  teaching, holistic development, and student success in the 21st century.
                 </p>
               </CardContent>
             </Card>
@@ -160,23 +167,23 @@ export default function AboutPage() {
               {
                 icon: <BookOpen className="w-8 h-8 text-blue-600" />,
                 title: "Future-Ready Curriculum",
-                description: "Designed with input from industry experts and educational researchers"
+                description: "Designed with input from industry experts and educational researchers",
               },
               {
                 icon: <Users className="w-8 h-8 text-green-600" />,
                 title: "Handpicked Faculty",
-                description: "Carefully selected educators passionate about innovative teaching"
+                description: "Carefully selected educators passionate about innovative teaching",
               },
               {
                 icon: <Globe className="w-8 h-8 text-purple-600" />,
                 title: "Global Perspective",
-                description: "International standards with local cultural sensitivity"
+                description: "International standards with local cultural sensitivity",
               },
               {
                 icon: <Award className="w-8 h-8 text-orange-600" />,
                 title: "Personalized Learning",
-                description: "Small class sizes ensuring individual attention for every student"
-              }
+                description: "Small class sizes ensuring individual attention for every student",
+              },
             ].map((feature, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
                 <CardHeader>
@@ -217,10 +224,12 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600 mb-2">M.A (Sociology), B.Ed</p>
-                <Badge variant="secondary" className="mb-4">25+ years experience</Badge>
+                <Badge variant="secondary" className="mb-4">
+                  25+ years experience
+                </Badge>
                 <p className="text-gray-600 leading-relaxed">
-                  An experienced educator and administrator dedicated to providing quality education 
-                  and fostering a nurturing learning environment for all students at BRD Public School.
+                  An experienced educator and administrator dedicated to providing quality education and fostering a
+                  nurturing learning environment for all students at BRD Public School.
                 </p>
               </CardContent>
             </Card>
@@ -236,19 +245,19 @@ export default function AboutPage() {
             Be part of something extraordinary. Help us write the first chapter of BRD Public School's legacy.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-green-600 hover:bg-green-700 text-lg px-8 py-4"
-              onClick={() => openWhatsApp('visit')}
+              onClick={() => openWhatsApp("visit")}
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               Schedule a Visit
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-black hover:bg-green hover:text-blue-600 text-lg px-8 py-4"
-              onClick={() => openWhatsApp('brochure')}
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-black hover:bg-white hover:text-blue-600 text-lg px-8 py-4 bg-transparent"
+              onClick={() => openWhatsApp("brochure")}
             >
               <BookOpen className="w-5 h-5 mr-2" />
               Download Brochure

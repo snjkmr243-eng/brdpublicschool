@@ -1,7 +1,9 @@
+"use client"
+
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Users, Award, BookOpen, Star, Mail, Phone, Linkedin, MessageCircle, FileText } from 'lucide-react'
+import { Users, Award, BookOpen, Star, Mail, Phone, MessageCircle, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function TeachersPage() {
@@ -9,18 +11,24 @@ export default function TeachersPage() {
 
   const openWhatsApp = (type: string) => {
     let message = ""
-    switch(type) {
-      case 'job':
-        message = "Hello! I'm interested in teaching opportunities at BRD Public School. I would like to submit my resume and learn about current job openings. Please guide me through the application process."
+    switch (type) {
+      case "job":
+        message =
+          "Hello! I'm interested in teaching opportunities at BRD Public School. I would like to submit my resume and learn about current job openings. Please guide me through the application process."
         break
-      case 'resume':
-        message = "Hello! I would like to submit my resume for teaching positions at BRD Public School. Please let me know the requirements and next steps in the hiring process."
+      case "resume":
+        message =
+          "Hello! I would like to submit my resume for teaching positions at BRD Public School. Please let me know the requirements and next steps in the hiring process."
         break
+      default:
+        message = "Hello! I'm interested in learning more about BRD Public School."
     }
-    
+
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
-    window.open(whatsappUrl, '_blank')
+    if (typeof window !== "undefined") {
+      window.open(whatsappUrl, "_blank")
+    }
   }
 
   const teachers = [
@@ -32,7 +40,7 @@ export default function TeachersPage() {
       specialization: "Hindi",
       achievements: [""],
       email: "poojakumari@brdschool.com",
-      photo: "/teacher-photos/teacher-1.jpg"
+      photo: "/teacher-photos/teacher-1.jpeg",
     },
     {
       name: "MONIKA DAS",
@@ -42,7 +50,7 @@ export default function TeachersPage() {
       specialization: "DANCE",
       achievements: [""],
       email: "MONIKA.DAS@brdschool.COM",
-      photo: "/teacher-photos/teacher-2.jpeg"
+      photo: "/teacher-photos/teacher-2.jpeg",
     },
     {
       name: "ASHA KEDIA",
@@ -52,7 +60,7 @@ export default function TeachersPage() {
       specialization: "MOTHER TEACHER ",
       achievements: [""],
       email: "ASHA.KEDIA@brdschool.com",
-      photo: "/teacher-photos/teacher-3.jpeg"
+      photo: "/teacher-photos/teacher-3.jpeg",
     },
     {
       name: "SANGEETA BHATTACHARYA",
@@ -62,7 +70,7 @@ export default function TeachersPage() {
       specialization: "MUSIC (VOCAL)",
       achievements: [""],
       email: "sangeeta.bhattacharya@brdschool.com",
-      photo: "/teacher-photos/teacher-4.jpeg"
+      photo: "/teacher-photos/teacher-4.jpeg",
     },
     {
       name: "DEEPA SRIVASTAVA",
@@ -72,7 +80,7 @@ export default function TeachersPage() {
       specialization: "POLITICAL SCIENCE (HONS)",
       achievements: [""],
       email: "Deepa.srivastava@brdschool.com",
-      photo: "/teacher-photos/teacher-5.jpeg"
+      photo: "/teacher-photos/teacher-5.jpeg",
     },
     {
       name: "KUMARI ANJALI",
@@ -82,7 +90,7 @@ export default function TeachersPage() {
       specialization: "ENGLISH",
       achievements: [""],
       email: "kumari.anjali@brdschool.com",
-      photo: "/teacher-photos/teacher-6.jpeg"
+      photo: "/teacher-photos/teacher-6.jpeg",
     },
     {
       name: "NIKITA SINHA",
@@ -92,7 +100,7 @@ export default function TeachersPage() {
       specialization: "BIOLOGY",
       achievements: [""],
       email: "nikita.sinha@brdschool.com",
-      photo: "/teacher-photos/teacher-7.jpg"
+      photo: "/teacher-photos/teacher-7.jpeg",
     },
     {
       name: "SHREYA KUMARI SHARMA",
@@ -102,7 +110,7 @@ export default function TeachersPage() {
       specialization: "ECONOMICS",
       achievements: [""],
       email: "shreya.kumari@brdschool.edu.in",
-      photo: "/teacher-photos/teacher-8.jpeg"
+      photo: "/teacher-photos/teacher-8.jpeg",
     },
     {
       name: "GIRJA PRAJAPATI",
@@ -112,7 +120,7 @@ export default function TeachersPage() {
       specialization: "MOTHER TEACHER",
       achievements: [""],
       email: "girja.prajapati@brdschool.com",
-      photo: "/teacher-photos/teacher-9.jpeg"
+      photo: "/teacher-photos/teacher-9.jpeg",
     },
     {
       name: "SWATI SRIVASTAVA",
@@ -122,7 +130,7 @@ export default function TeachersPage() {
       specialization: "SOCIAL & EVS",
       achievements: [""],
       email: "Swati.srivastava@brdschool.com",
-      photo: "/teacher-photos/teacher-10.jpeg"
+      photo: "/teacher-photos/teacher-10.jpeg",
     },
     {
       name: "JITENDRA KUMAR ",
@@ -132,7 +140,7 @@ export default function TeachersPage() {
       specialization: "Academic Planning, Student Assessment",
       achievements: [""],
       email: "jitendra.kumar@brdschool.com",
-      photo: "/teacher-photos/teacher-11.jpeg"
+      photo: "/teacher-photos/teacher-11.jpeg",
     },
     {
       name: "KHUSHBOO VERMA ",
@@ -142,8 +150,8 @@ export default function TeachersPage() {
       specialization: "Curriculum Coordination",
       achievements: [""],
       email: "khushboo.verma@brdschool.com",
-      photo: "/teacher-photos/teacher-12.jpeg"
-    }
+      photo: "/teacher-photos/teacher-12.jpeg",
+    },
   ]
 
   return (
@@ -156,12 +164,10 @@ export default function TeachersPage() {
               <Users className="w-4 h-4 mr-2" />
               Expert Faculty Team
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-              Meet Our Passionate Educators
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">Meet Our Passionate Educators</h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Our handpicked team of experienced educators brings together expertise, innovation, 
-              and dedication to nurture every student's potential in our inaugural year.
+              Our handpicked team of experienced educators brings together expertise, innovation, and dedication to
+              nurture every student's potential in our inaugural year.
             </p>
           </div>
         </div>
@@ -223,22 +229,20 @@ export default function TeachersPage() {
                     className="rounded-full mx-auto mb-4 shadow-lg object-cover"
                   />
                   <CardTitle className="text-xl text-gray-800">{teacher.name}</CardTitle>
-                  <CardDescription className="text-blue-600 font-medium text-lg">
-                    {teacher.subject}
-                  </CardDescription>
+                  <CardDescription className="text-blue-600 font-medium text-lg">{teacher.subject}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
                     <p className="text-sm text-gray-600 mb-1">designation:</p>
                     <p className="font-medium">{teacher.designation}</p>
                   </div>
-                  
+
                   <div className="flex justify-between items-center">
                     <Badge variant="secondary" className="bg-blue-100 text-blue-800">
                       {teacher.experience}
                     </Badge>
                     <Badge variant="outline" className="border-green-200 text-green-700">
-                      {teacher.specialization.split(',')[0]}
+                      {teacher.specialization.split(",")[0]}
                     </Badge>
                   </div>
 
@@ -296,7 +300,8 @@ export default function TeachersPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Every lesson is designed around student needs, interests, and learning styles to maximize engagement and understanding.
+                  Every lesson is designed around student needs, interests, and learning styles to maximize engagement
+                  and understanding.
                 </p>
               </CardContent>
             </Card>
@@ -310,7 +315,8 @@ export default function TeachersPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Our teachers work together across subjects to create integrated learning experiences that connect knowledge areas.
+                  Our teachers work together across subjects to create integrated learning experiences that connect
+                  knowledge areas.
                 </p>
               </CardContent>
             </Card>
@@ -324,7 +330,8 @@ export default function TeachersPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  We continuously update our methods with the latest educational research and technology to provide cutting-edge learning.
+                  We continuously update our methods with the latest educational research and technology to provide
+                  cutting-edge learning.
                 </p>
               </CardContent>
             </Card>
@@ -337,23 +344,23 @@ export default function TeachersPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Join Our Teaching Excellence</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Are you a passionate educator looking to be part of something extraordinary? 
-            We're always looking for exceptional teachers to join our growing team.
+            Are you a passionate educator looking to be part of something extraordinary? We're always looking for
+            exceptional teachers to join our growing team.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-green-600 hover:bg-green-700 text-lg px-8 py-4"
-              onClick={() => openWhatsApp('job')}
+              onClick={() => openWhatsApp("job")}
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               View Open Positions
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-black hover:bg-green hover:text-blue-600 text-lg px-8 py-4"
-              onClick={() => openWhatsApp('resume')}
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-black hover:bg-green hover:text-blue-600 text-lg px-8 py-4 bg-transparent"
+              onClick={() => openWhatsApp("resume")}
             >
               <FileText className="w-5 h-5 mr-2" />
               Submit Your Resume

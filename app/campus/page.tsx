@@ -35,11 +35,15 @@ export default function CampusPage() {
         message =
           "Hello! I would like to schedule a campus visit to BRD Public School. Please let me know the available dates and times for a guided tour."
         break
+      default:
+        message = "Hello! I'm interested in learning more about BRD Public School."
     }
 
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
-    window.open(whatsappUrl, "_blank")
+    if (typeof window !== "undefined") {
+      window.open(whatsappUrl, "_blank")
+    }
   }
 
   return (

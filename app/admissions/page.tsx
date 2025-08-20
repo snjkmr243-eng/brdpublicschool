@@ -1,33 +1,55 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, Calendar, FileText, Users, CreditCard, Award, Clock, Phone, Mail, MapPin, MessageCircle, BookOpen } from 'lucide-react'
-
-const whatsappNumber = "919455862486"
-
-const openWhatsApp = (type: string) => {
-  let message = ""
-  switch(type) {
-    case 'admission':
-      message = "Hello! I'm interested in admission to BRD Public School for the 2025-26 academic year. Please provide me with detailed information about the admission process, fees, available seats, and required documents."
-      break
-    case 'prospectus':
-      message = "Hello! I would like to download the BRD Public School prospectus with complete details about curriculum, fees, facilities, and admission procedures."
-      break
-    case 'visit':
-      message = "Hello! I would like to schedule a campus visit to BRD Public School to see the facilities and meet with the admission counselors."
-      break
-    case 'help':
-      message = "Hello! I need assistance with the BRD Public School admission process. Could you please help me with my queries regarding admissions?"
-      break
-  }
-  
-  const encodedMessage = encodeURIComponent(message)
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
-  window.open(whatsappUrl, '_blank')
-}
+import {
+  CheckCircle,
+  Calendar,
+  FileText,
+  Users,
+  CreditCard,
+  Award,
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+  BookOpen,
+} from "lucide-react"
 
 export default function AdmissionsPage() {
+  const whatsappNumber = "919455862486"
+
+  const openWhatsApp = (type: string) => {
+    let message = ""
+    switch (type) {
+      case "admission":
+        message =
+          "Hello! I'm interested in admission to BRD Public School for the 2025-26 academic year. Please provide me with detailed information about the admission process, fees, available seats, and required documents."
+        break
+      case "prospectus":
+        message =
+          "Hello! I would like to download the BRD Public School prospectus with complete details about curriculum, fees, facilities, and admission procedures."
+        break
+      case "visit":
+        message =
+          "Hello! I would like to schedule a campus visit to BRD Public School to see the facilities and meet with the admission counselors."
+        break
+      case "help":
+        message =
+          "Hello! I need assistance with the BRD Public School admission process. Could you please help me with my queries regarding admissions?"
+        break
+      default:
+        message = "Hello! I'm interested in learning more about BRD Public School admissions."
+    }
+
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
+    if (typeof window !== "undefined") {
+      window.open(whatsappUrl, "_blank")
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -38,27 +60,25 @@ export default function AdmissionsPage() {
               <Award className="w-4 h-4 mr-2" />
               Admissions Open 2025-26
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-              Join Our Inaugural Batch
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">Join Our Inaugural Batch</h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Be among the first students to experience our revolutionary approach to education. 
-              Limited seats available with special early bird benefits.
+              Be among the first students to experience our revolutionary approach to education. Limited seats available
+              with special early bird benefits.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-green-600 hover:bg-green-700 text-lg px-8 py-4"
-                onClick={() => openWhatsApp('admission')}
+                onClick={() => openWhatsApp("admission")}
               >
                 <MessageCircle className="w-5 h-5 mr-2" />
                 Apply Now
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="text-lg px-8 py-4"
-                onClick={() => openWhatsApp('prospectus')}
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-4 bg-transparent"
+                onClick={() => openWhatsApp("prospectus")}
               >
                 <BookOpen className="w-5 h-5 mr-2" />
                 Download Prospectus
@@ -81,23 +101,23 @@ export default function AdmissionsPage() {
               {
                 title: "20% Discount",
                 description: "On admission fees for first 100 students",
-                icon: <CreditCard className="w-8 h-8" />
+                icon: <CreditCard className="w-8 h-8" />,
               },
               {
                 title: "No Donation",
                 description: "Transparent fee structure with no hidden charges",
-                icon: <CheckCircle className="w-8 h-8" />
+                icon: <CheckCircle className="w-8 h-8" />,
               },
               {
                 title: "Founding Member",
                 description: "Special recognition as inaugural batch student",
-                icon: <Award className="w-8 h-8" />
+                icon: <Award className="w-8 h-8" />,
               },
               {
                 title: "Priority Access",
                 description: "First preference for all school activities",
-                icon: <Users className="w-8 h-8" />
-              }
+                icon: <Users className="w-8 h-8" />,
+              },
             ].map((benefit, index) => (
               <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
                 <CardHeader className="text-center">
@@ -129,26 +149,26 @@ export default function AdmissionsPage() {
                 step: "01",
                 title: "Online Application",
                 description: "Fill out our comprehensive online application form with all required details",
-                icon: <FileText className="w-8 h-8 text-blue-600" />
+                icon: <FileText className="w-8 h-8 text-blue-600" />,
               },
               {
                 step: "02",
                 title: "Document Submission",
                 description: "Upload all necessary documents and certificates through our secure portal",
-                icon: <CheckCircle className="w-8 h-8 text-green-600" />
+                icon: <CheckCircle className="w-8 h-8 text-green-600" />,
               },
               {
                 step: "03",
                 title: "Interaction Session",
                 description: "Attend a friendly parent-student interaction with our academic team",
-                icon: <Users className="w-8 h-8 text-purple-600" />
+                icon: <Users className="w-8 h-8 text-purple-600" />,
               },
               {
                 step: "04",
                 title: "Confirmation",
                 description: "Complete fee payment and receive admission confirmation with class details",
-                icon: <Award className="w-8 h-8 text-orange-600" />
-              }
+                icon: <Award className="w-8 h-8 text-orange-600" />,
+              },
             ].map((process, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow relative">
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
@@ -187,7 +207,7 @@ export default function AdmissionsPage() {
                 fee: "₹7,200/year",
                 registrationFee: "₹200",
                 transportFee: "NA",
-                color: "bg-pink-100 text-pink-800"
+                color: "bg-pink-100 text-pink-800",
               },
               {
                 level: "Primary",
@@ -197,7 +217,7 @@ export default function AdmissionsPage() {
                 fee: "₹8,400/year",
                 registrationFee: "₹200",
                 transportFee: "NA",
-                color: "bg-blue-100 text-blue-800"
+                color: "bg-blue-100 text-blue-800",
               },
               {
                 level: "Primary",
@@ -207,7 +227,7 @@ export default function AdmissionsPage() {
                 fee: "₹9,600/year",
                 registrationFee: "₹200",
                 transportFee: "NA",
-                color: "bg-green-100 text-green-800"
+                color: "bg-green-100 text-green-800",
               },
               {
                 level: "Upper Primary",
@@ -217,7 +237,7 @@ export default function AdmissionsPage() {
                 fee: "₹12,000/year",
                 registrationFee: "₹200",
                 transportFee: "NA",
-                color: "bg-purple-100 text-purple-800"
+                color: "bg-purple-100 text-purple-800",
               },
               {
                 level: "Upper Primary",
@@ -227,8 +247,8 @@ export default function AdmissionsPage() {
                 fee: "₹14,400/year",
                 registrationFee: "₹200",
                 transportFee: "NA",
-                color: "bg-orange-100 text-orange-800"
-              }
+                color: "bg-orange-100 text-orange-800",
+              },
             ].map((grade, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardHeader>
@@ -283,7 +303,7 @@ export default function AdmissionsPage() {
                   "Passport Size Photographs (6 copies)",
                   "Medical Certificate from Registered Doctor",
                   "Immunization Records",
-                  "Character Certificate (if applicable)"
+                  "Character Certificate (if applicable)",
                 ].map((doc, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
@@ -303,7 +323,7 @@ export default function AdmissionsPage() {
                   "Caste Certificate (if applicable)",
                   "Bank Account Details for fee payment",
                   "Emergency Contact Information",
-                  "Parent Photographs (2 copies each)"
+                  "Parent Photographs (2 copies each)",
                 ].map((doc, index) => (
                   <div key={index} className="flex items-start space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500 mt-1 flex-shrink-0" />
@@ -330,39 +350,48 @@ export default function AdmissionsPage() {
                 date: "Jan 15, 2025",
                 event: "Applications Open",
                 description: "Online application portal goes live",
-                status: "active"
+                status: "active",
               },
               {
                 date: "Mar 31, 2025",
                 event: "Early Bird Deadline",
                 description: "Last date for 20% discount",
-                status: "urgent"
+                status: "urgent",
               },
               {
                 date: "May 15, 2025",
                 event: "Applications Close",
                 description: "Final date for submission",
-                status: "upcoming"
+                status: "upcoming",
               },
               {
                 date: "Jun 1, 2025",
                 event: "Classes Begin",
                 description: "First day of academic year",
-                status: "future"
-              }
+                status: "future",
+              },
             ].map((date, index) => (
-              <Card key={index} className={`text-center ${
-                date.status === 'urgent' ? 'border-red-200 bg-red-50' : 
-                date.status === 'active' ? 'border-green-200 bg-green-50' : 
-                'border-blue-200 bg-blue-50'
-              }`}>
+              <Card
+                key={index}
+                className={`text-center ${
+                  date.status === "urgent"
+                    ? "border-red-200 bg-red-50"
+                    : date.status === "active"
+                      ? "border-green-200 bg-green-50"
+                      : "border-blue-200 bg-blue-50"
+                }`}
+              >
                 <CardHeader>
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
-                    <Calendar className={`w-8 h-8 ${
-                      date.status === 'urgent' ? 'text-red-600' : 
-                      date.status === 'active' ? 'text-green-600' : 
-                      'text-blue-600'
-                    }`} />
+                    <Calendar
+                      className={`w-8 h-8 ${
+                        date.status === "urgent"
+                          ? "text-red-600"
+                          : date.status === "active"
+                            ? "text-green-600"
+                            : "text-blue-600"
+                      }`}
+                    />
                   </div>
                   <CardTitle className="text-lg">{date.event}</CardTitle>
                   <CardDescription className="font-medium text-gray-800">{date.date}</CardDescription>
@@ -423,19 +452,19 @@ export default function AdmissionsPage() {
           </div>
 
           <div className="text-center mt-12">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-green-600 hover:bg-green-700 mr-4"
-              onClick={() => openWhatsApp('admission')}
+              onClick={() => openWhatsApp("admission")}
             >
               <MessageCircle className="w-4 h-4 mr-2" />
               Apply Online Now
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-black hover:bg-green hover:text-blue-600"
-              onClick={() => openWhatsApp('visit')}
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-black hover:bg-white hover:text-blue-600 bg-transparent"
+              onClick={() => openWhatsApp("visit")}
             >
               <Calendar className="w-4 h-4 mr-2" />
               Schedule Campus Visit
